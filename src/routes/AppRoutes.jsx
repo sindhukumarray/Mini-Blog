@@ -1,27 +1,17 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "../pages/Home";
 
 function AppRoutes() {
-
   return (
-
     <BrowserRouter>
-
       <Routes>
-
         <Route
-
           path="/"
-
-          element={<h1>Mini Blog Home</h1>}
-
+          element={<Home />}
         />
-
       </Routes>
-
     </BrowserRouter>
-
   );
-
 }
 
 export default AppRoutes;
