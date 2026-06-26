@@ -5,41 +5,52 @@ import "../styles/Home.css";
 function Home() {
 
   const [posts, setPosts] = useState([]);
-  const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+  const [page, setPage] = useState(1);
+
   useEffect(() => {
-
-    async function fetchPosts() {
-
-      try {
-
-        setLoading(true);
-
-        const res = await axios.get(
-          `/posts?_page=${page}&_limit=5`
-        );
-
-        setPosts(res.data);
-
-        setError("");
-
-      } catch (err) {
-
-        setError("Failed to load posts.");
-
-      } finally {
-
-        setLoading(false);
-
-      }
-
-    }
 
     fetchPosts();
 
   }, [page]);
+
+  async function fetchPosts() {
+
+    try {
+
+      setLoading(true);
+
+      const res = await axios.get(
+        `/posts?_page=${page}&_limit=5`
+      );
+
+      setPosts(res.data);
+
+    } catch {
+
+      setError("Failed to load posts");
+
+    } finally {
+
+      setLoading(false);
+
+    }
+
+  }
+
+  if (loading) {
+
+    return <h2>Loading...</h2>;
+
+  }
+
+  if (error) {
+
+    return <h2>{error}</h2>;
+
+  }
 
   return (
 
@@ -47,76 +58,64 @@ function Home() {
 
       <h1>Mini Blog</h1>
 
-      {loading && <h2>Loading...</h2>}
+      {
 
-      {error && <h2>{error}</h2>}
+        posts.map((post)=>(
 
-      {!loading && !error && (
+          <div
+          className="card"
+          key={post.id}
+          >
 
-        <>
+            <h3>{post.title}</h3>
 
-          <div className="post-list">
-
-            {posts.map((post) => (
-
-              <div
-                className="post-card"
-                key={post.id}
-              >
-
-                <h3>{post.title}</h3>
-
-                <p>{post.body}</p>
-
-              </div>
-
-            ))}
+            <p>{post.body}</p>
 
           </div>
 
-          <div className="buttons">
+        ))
 
-            <button
+      }
 
-              disabled={page===1}
+      <div className="buttons">
 
-              onClick={()=>
+        <button
 
-                setPage(page-1)
+        disabled={page===1}
 
-              }
+        onClick={()=>
 
-            >
+        setPage(page-1)
 
-              Previous
+        }
 
-            </button>
+        >
 
-            <span>
+        Previous
 
-              Page {page}
+        </button>
 
-            </span>
+        <span>
 
-            <button
+        Page {page}
 
-              onClick={()=>
+        </span>
 
-                setPage(page+1)
+        <button
 
-              }
+        onClick={()=>
 
-            >
+        setPage(page+1)
 
-              Next
+        }
 
-            </button>
+        >
 
-          </div>
+        Next
 
-        </>
+        </button>
 
-      )}
+      </div>
 
     </div>
 
