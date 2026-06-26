@@ -1,0 +1,31 @@
+.detail{
+
+width:700px;
+
+margin:50px auto;
+
+background:white;
+
+padding:30px;
+
+border-radius:15px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+}
+
+.detail h1{
+
+margin-bottom:20px;
+
+color:#2563eb;
+
+}
+
+.detail p{
+
+line-height:1.8;
+
+font-size:18px;
+
+}

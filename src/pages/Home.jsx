@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "../api/axiosInstance";
 import "../styles/Home.css";
 import Pagination from "../components/Pagination";
-
+import { Link } from "react-router-dom";
 function Home() {
 
   const [posts, setPosts] = useState([]);
@@ -71,6 +71,16 @@ function Home() {
             <h3>{post.title}</h3>
 
             <p>{post.body}</p>
+
+            <Link
+
+                to={`/posts/${post.id}`}
+
+            >
+
+               Read More
+
+            </Link>
 
           </div>
 
