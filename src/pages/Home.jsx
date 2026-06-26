@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "../api/axiosInstance";
 import "../styles/Home.css";
+import Pagination from "../components/Pagination";
 
 function Home() {
 
@@ -77,45 +78,13 @@ function Home() {
 
       }
 
-      <div className="buttons">
+    <Pagination
 
-        <button
+        page={page}
 
-        disabled={page===1}
+        setPage={setPage}
 
-        onClick={()=>
-
-        setPage(page-1)
-
-        }
-
-        >
-
-        Previous
-
-        </button>
-
-        <span>
-
-        Page {page}
-
-        </span>
-
-        <button
-
-        onClick={()=>
-
-        setPage(page+1)
-
-        }
-
-        >
-
-        Next
-
-        </button>
-
-      </div>
+    />
 
     </div>
 
