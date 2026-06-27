@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #eef4ff, #dbeafe);
+}
+
+.dashboard {
+  width: 90%;
+  max-width: 900px;
+  margin: 50px auto;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+.dashboard h1 {
+  font-size: 40px;
+  color: #2563eb;
+  margin-bottom: 15px;
+}
+
+.dashboard p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 35px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #2563eb;
+  color: white;
+  padding: 25px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 20px rgba(37, 99, 235, 0.3);
+}
+
+.card h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: white;
+  font-size: 16px;
+}
+
+.logout-btn {
+  margin-top: 35px;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 10px;
+  background: #ef4444;
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    width: 95%;
+    padding: 25px;
+  }
+
+  .dashboard h1 {
+    font-size: 30px;
+  }
+
+  .card h2 {
+    font-size: 26px;
+  }
+}
