@@ -3,6 +3,8 @@ import Home from "../pages/Home";
 import PostDetail from "../pages/PostDetail";
 import CreatePost from "../pages/CreatePost";
 import Login from "../pages/Login";
+import Dashboard from "../pages/Dashboard";
+import ProtectedRoute from "../components/ProtectedRoute";
 function AppRoutes() {
   return (
     <BrowserRouter>
@@ -33,6 +35,15 @@ function AppRoutes() {
 
              element={<Login/>}
 
+        />
+
+        <Route
+             path="/dashboard"
+             element={
+           <ProtectedRoute>
+           <Dashboard />
+          </ProtectedRoute>
+              }
         />
         
       </Routes>

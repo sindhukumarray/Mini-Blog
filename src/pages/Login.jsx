@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import "../styles/Login.css";
 
 function Login() {
@@ -8,44 +7,33 @@ function Login() {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
-
   const [password, setPassword] = useState("");
-
   const [message, setMessage] = useState("");
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
 
     e.preventDefault();
 
     if (!email || !password) {
-
       setMessage("Please fill all fields.");
-
       return;
-
     }
 
-    try {
+    // Mock Login
+    if (
+      email === "sindhukumar@gmail.in" &&
+      password === "sindhu2003"
+    ) {
 
-      const res = await axios.post(
-        "https://reqres.in/api/login",
-        {
-          email,
-          password
-        }
-      );
-
-      localStorage.setItem(
-        "token",
-        res.data.token
-      );
-
+      localStorage.setItem("token", "demo-token-123");
 
       setMessage("Login Successful");
 
-      navigate("/dashboard");
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 500);
 
-    } catch {
+    } else {
 
       setMessage("Invalid Email or Password");
 
@@ -62,41 +50,21 @@ function Login() {
       <form onSubmit={handleSubmit}>
 
         <input
-
           type="email"
-
           placeholder="Email"
-
           value={email}
-
-          onChange={(e)=>
-
-          setEmail(e.target.value)
-
-          }
-
+          onChange={(e) => setEmail(e.target.value)}
         />
 
         <input
-
           type="password"
-
           placeholder="Password"
-
           value={password}
-
-          onChange={(e)=>
-
-          setPassword(e.target.value)
-
-          }
-
+          onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button>
-
+        <button type="submit">
           Login
-
         </button>
 
       </form>
