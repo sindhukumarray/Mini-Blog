@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import PostDetail from "../pages/PostDetail";
 import CreatePost from "../pages/CreatePost";
+import Login from "../pages/Login";
 function AppRoutes() {
   return (
     <BrowserRouter>
@@ -25,6 +26,15 @@ function AppRoutes() {
            element={<CreatePost/>}
 
         />
+        
+        <Route
+
+            path="/login"
+
+             element={<Login/>}
+
+        />
+        
       </Routes>
     </BrowserRouter>
   );
