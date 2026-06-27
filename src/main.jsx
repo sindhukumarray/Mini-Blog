@@ -19,4 +19,4 @@ document.getElementById("root")
 
 </React.StrictMode>
 
-);
+); 

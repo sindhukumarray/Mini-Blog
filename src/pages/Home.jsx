@@ -75,7 +75,7 @@ function Home() {
             <Link
 
                 to={`/posts/${post.id}`}
-
+                 className="read-more"
             >
 
                Read More
